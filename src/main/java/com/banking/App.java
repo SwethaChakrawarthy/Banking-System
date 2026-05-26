@@ -1,13 +1,20 @@
 package com.banking;
 
-/**
- * Hello world!
- *
- */
+import com.banking.util.DataBaseConnection;
+
+import java.sql.SQLException;
+
+
 public class App 
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        try {
+            if (DataBaseConnection.getConnection()!=null){
+                System.out.println("Connection Successful");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
